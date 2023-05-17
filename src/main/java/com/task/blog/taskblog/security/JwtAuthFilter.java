@@ -15,6 +15,7 @@ import com.task.blog.taskblog.util.UtilJwt;
 import com.task.blog.taskblog.vo.UserAuthVo;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -45,6 +46,8 @@ public class JwtAuthFilter extends OncePerRequestFilter{
             }else{
                 SecurityContextHolder.clearContext();
             }
+        } catch (ExpiredJwtException e) {
+            SecurityContextHolder.clearContext();
         }catch (UnsupportedJwtException e) {
             SecurityContextHolder.clearContext();
         } catch (Exception e) {

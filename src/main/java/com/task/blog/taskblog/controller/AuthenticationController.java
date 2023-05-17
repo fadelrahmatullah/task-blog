@@ -1,5 +1,6 @@
 package com.task.blog.taskblog.controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,5 +37,11 @@ public class AuthenticationController extends BaseController{
     public Response<UserResponse> register(@RequestBody @Valid UserRequest user) {
         UserResponse response = authenticationService.registerUser(user);
         return utilResponse.generateResponseSuccess(response);
+    }
+
+    @GetMapping("/test-hello")
+    public Response<String> hello() {
+        // UserResponse response = authenticationService.registerUser(user);
+        return utilResponse.generateResponseSuccess("HALLO");
     }
 }
