@@ -63,7 +63,7 @@ Restful API Blog
         - blogName=
         - blogTitle=
 
-- (DELETE) localhost:8020/blog/api/main/v1/blog/delete-blog/3
+- (DELETE) localhost:8020/blog/api/main/v1/blog/delete-blog/{blogId}
     - Auth : 
         - type : Bearear Token
         - Token : 
